@@ -4,10 +4,12 @@ run:
 
 linters:
   enable-all: true
+  disable:
+   - gas
 
 linters-settings:
   gocyclo:
-    min-complexity: 11
+    min-complexity: 10
   gofmt:
     simplify: true
   golint:

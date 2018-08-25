@@ -4,7 +4,7 @@ set -euo pipefail
 logfile="q"
 logpath="$TMPDIR/$logfile"
 
-if [[ -z "$TMPDIR" ]]; then
+if [[ -z $TMPDIR ]]; then
 	if [[ -e "/system/bin/adb" ]]; then
 		# android
 		logpath="/data/local/tmp/$logfile"
@@ -13,8 +13,8 @@ if [[ -z "$TMPDIR" ]]; then
 	fi
 fi
 
-if [[ ! -f "$logpath" ]]; then
-    echo 'Q LOG' > "$logpath"
+if [[ ! -f $logpath ]]; then
+	echo 'Q LOG' >"$logpath"
 fi
 
 tail -100f -- "$logpath"
