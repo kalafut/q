@@ -40,6 +40,7 @@ type logger struct {
 	timer    *time.Timer   // when it gets to 0, start a new log group
 	lastFile string        // last file to call q.Q(). determines when to print header
 	lastFunc string        // last function to call q.Q()
+	disabled bool          // disable output
 }
 
 // init creates the standard logger.
@@ -161,6 +162,10 @@ func Q(v ...interface{}) {
 	std.mu.Lock()
 	defer std.mu.Unlock()
 
+	if std.disabled {
+		return
+	}
+
 	// Flush the buffered writes to disk.
 	defer func() {
 		if err := std.flush(); err != nil {
@@ -193,4 +198,20 @@ func Q(v ...interface{}) {
 	// Convert the arguments to name=value strings.
 	args = prependArgName(names, args)
 	std.output(args...)
+}
+
+// Off disables any output until a subsequent call to On.
+func Off() {
+	std.mu.Lock()
+	defer std.mu.Unlock()
+
+	std.disabled = true
+}
+
+// On re-enables output that was turned Off.
+func On() {
+	std.mu.Lock()
+	defer std.mu.Unlock()
+
+	std.disabled = false
 }

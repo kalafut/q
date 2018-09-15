@@ -23,6 +23,10 @@ Type `q.Q` instead of `fmt.Printf` and your variables will be printed like this:
 import "github.com/y0ssar1an/q"
 ...
 q.Q(a, b, c)
+
+// q output can be turned off and on.
+q.Off()
+q.On()
 ```
 ```go
 // Alternatively, use the . import and you can omit the package name.
