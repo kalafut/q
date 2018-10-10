@@ -1,3 +1,9 @@
+
+**Background**: This is a fork of the excellent [q](https://github.com/y0ssar1an/q) library, which is declared to be [feature complete](https://github.com/y0ssar1an/q/blob/master/CONTRIBUTING.md). I have some
+ideas for improving q and this is where they'll happen.
+
+---
+
 # q
 [![Build Status](https://travis-ci.org/y0ssar1an/q.svg?branch=develop)](https://travis-ci.org/y0ssar1an/q)
 [![GoDoc](https://godoc.org/github.com/y0ssar1an/q?status.svg)](https://godoc.org/github.com/y0ssar1an/q)
