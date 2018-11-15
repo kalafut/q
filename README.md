@@ -26,7 +26,7 @@ Type `q.Q` instead of `fmt.Printf` and your variables will be printed like this:
 ## Basic Usage
 
 ```go
-import "github.com/y0ssar1an/q"
+import "github.com/kalafut/q"
 ...
 q.Q(a, b, c)
 
@@ -36,7 +36,7 @@ q.On()
 ```
 ```go
 // Alternatively, use the . import and you can omit the package name.
-import . "github.com/y0ssar1an/q"
+import . "github.com/kalafut/q"
 ...
 Q(a, b, c)
 ```
